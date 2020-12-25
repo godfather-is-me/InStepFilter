@@ -17,6 +17,7 @@ soup = BeautifulSoup(r.content, 'html.parser')
 #print(soup)
 majors = {}
 links = soup.findAll('td',title="Academic Concentration")
+links = links + soup.findAll('td',title="Academic concentration")
 links2 = soup.findAll('td',title="Project Area")
 links3 = soup.findAll('td',title="Duration (in weeks)")
 links4 = soup.findAll('td',title="Description")
@@ -32,3 +33,4 @@ with open('instep.csv', 'w', newline='') as file:#Find all outbound links on suc
     while(i<len(links)):
         writer.writerow([links[i].text,links2[i].text,links3[i].text,links4[i].text,])
         i = i+1
+        
